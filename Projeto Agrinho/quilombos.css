@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: rgb(254, 255, 214);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(31, 31, 48);
+    padding: 10px 20px;
+    color: white;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-brand .logo {
+    width: 100px;
+    height: auto;
+}
+
+.navbar-brand .logocanvas {
+    width: 50px;
+    height: auto;
+}
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.nav-item {
+    position: relative;
+    margin: 0 15px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(31, 31, 48);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    flex-direction: column;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-item:hover .dropdown-content {
+    display: block;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.dropdown-toggle {
+    display: none;
+}
+
+.background-container {
+    position: relative;
+    z-index: 1;
+}
+
+.background-image {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.content-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+    font-size: 1.2em;
+}
+
+.content-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.text-background {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.text-background p,
+.text-background .quilombo-list {
+    margin-bottom: 20px;
+}
+
+.quilombo-list {
+    list-style: none;
+    padding-left: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.quilombo-list li {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.accordion {
+    margin-bottom: 20px;
+}
+
+.accordion-label {
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-label .arrow {
+    font-size: 1.2em;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+#toggle-communities {
+    display: none;
+}
+
+#toggle-communities:checked + .accordion-label .arrow {
+    transform: rotate(180deg);
+}
+
+#toggle-communities:checked ~ .quilombo-list {
+    max-height: 200px; /* Ajuste conforme a altura necessária */
+}
+
+.quilombo-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta o número de colunas conforme o tamanho disponível */
+    gap: 10px; /* Espaçamento entre as imagens */
+    margin-bottom: 20px; /* Espaçamento abaixo do contêiner de imagens */
+}
+
+.quilombo-image {
+    width: 200px; /* Define a largura fixa */
+    height: 200px; /* Define a altura fixa */
+    object-fit: cover; /* Garante que as imagens preencham o espaço sem distorcer */
+    border-radius: 10px; /* Arredonda os cantos das imagens */
+    display: block; /* Garante que as imagens sejam exibidas como blocos */
+}
+
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 0;
+        width: 100%;
+        background-color: rgb(31, 31, 48);
+        display: flex;
+        overflow: hidden;
+        transition: height 0.3s ease;
+        z-index: 1001;
+    }
+
+    .nav-toggle:checked ~ .navbar-nav {
+        height: 100vh;
+    }
+
+    .nav-item {
+        margin: 10px 0;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: rgb(31, 31, 48);
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1002;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .dropdown-content {
+        position: static;
+        display: none;
+        width: 100%;
+        background-color: rgb(31, 31, 48);
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .dropdown-content a {
+        padding: 10px;
+    }
+
+    .dropdown-toggle:checked + .nav-link + .dropdown-content {
+        display: flex;
+        max-height: 100vh;
+    }
+
+    .nav-toggle {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    .nav-toggle-label {
+        display: block;
+        z-index: 1003;
+    }
+
+    .background-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .background-image {
+        width: 100%;
+        height: auto;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+
+    .content-container {
+        max-width: 100%;
+        margin: 20px;
+        padding: 0 20px;
+        line-height: 1.6;
+        font-size: 1em;
+    }
+
+    .content-container h1 {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+    .text-background {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-background p,
+    .text-background .quilombo-list {
+        margin-bottom: 15px;
+    }
+
+    .quilombo-list li {
+        font-size: 1em;
+    }
+
+    .quilombo-images {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Mantém a largura fixa das imagens */
+    }
+
+    .quilombo-image {
+        width: 200px; /* Define a largura fixa */
+        height: 200px; /* Define a altura fixa */
+    }
+}
